@@ -1,14 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
 
 const Navbar = () => {
+  const { cartCount } = useCart();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
       <div className="container-fluid px-4">
         {/* Brand Logo */}
-        <a className="navbar-brand brand-logo" href="/">
+        <Link className="navbar-brand brand-logo" to="/">
           <span className="brand-text">SellSpot</span>
           <span className="brand-dot">.</span>
-        </a>
+        </Link>
 
         {/* Mobile Toggle */}
         <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -66,10 +70,10 @@ const Navbar = () => {
             <a className="nav-link nav-icon d-flex align-items-center justify-content-center" href="#" title="Account">
               <i className="fas fa-user"></i>
             </a>
-            <a className="nav-link nav-icon d-flex align-items-center justify-content-center position-relative" href="#" title="Cart">
+            <Link className="nav-link nav-icon d-flex align-items-center justify-content-center position-relative" to="/cart" title="Cart">
               <i className="fas fa-shopping-bag"></i>
-              <span className="cart-badge">3</span>
-            </a>
+              {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+            </Link>
           </div>
         </div>
       </div>

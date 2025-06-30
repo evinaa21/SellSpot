@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
             <span className="action-btn" title="Quick View"><i className="fas fa-search"></i></span>
             <span className="action-btn" title="Add to Cart"><i className="fas fa-shopping-bag"></i></span>
           </div>
-          {product.isNew && <span className="new-badge">New</span>}
+          {product.isNew && <span className="product-badge">New</span>}
         </div>
       </Link>
       <div className="product-info">

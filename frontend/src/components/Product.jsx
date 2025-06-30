@@ -5,9 +5,11 @@ import { allProductsData } from '../data/products';
 import ProductCard from './common/ProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { useCart } from '../context/CartContext';
 
 const Product = () => {
   const { id } = useParams();
+  const { addToCart } = useCart();
   const product = allProductsData.find(p => p.id === parseInt(id));
 
   const [quantity, setQuantity] = useState(1);
@@ -24,6 +26,12 @@ const Product = () => {
     setQuantity(1);
   }, [id, product]);
 
+  const handleAddToCart = () => {
+    addToCart(product, quantity, selectedSize, selectedColor);
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 2000);
+  };
+
   if (!product) {
     return (
       <Layout>
@@ -35,13 +43,6 @@ const Product = () => {
       </Layout>
     );
   }
-
-  const handleAddToCart = () => {
-    setIsAdded(true);
-    // Here you would typically dispatch an action to add to cart
-    console.log(`Added ${quantity} of ${product.name} to cart.`);
-    setTimeout(() => setIsAdded(false), 2000); // Reset button state after 2 seconds
-  };
 
   const relatedProducts = allProductsData.filter(
     p => p.mainCategory === product.mainCategory && p.id !== product.id

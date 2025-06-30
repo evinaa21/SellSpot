@@ -7,8 +7,9 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-// Import the new data
+// Import the new data and the ProductCard component
 import { latestProductsData } from '../../data/products';
+import ProductCard from './ProductCard';
 
 const LatestProducts = () => {
   return (
@@ -35,22 +36,7 @@ const LatestProducts = () => {
         >
           {latestProductsData.map((product) => (
             <SwiperSlide key={product.id}>
-              <div className="product-card">
-                <div className="product-image">
-                  <img src={product.imageUrl} alt={product.name} />
-                  {product.isNew && <span className="product-badge">New</span>}
-                  <div className="product-actions">
-                    <a href="#" className="action-btn"><i className="fas fa-shopping-bag"></i></a>
-                    <a href="#" className="action-btn"><i className="fas fa-heart"></i></a>
-                    <a href="#" className="action-btn"><i className="fas fa-search"></i></a>
-                  </div>
-                </div>
-                <div className="product-info">
-                  <p className="product-category">{product.category}</p>
-                  <h5 className="product-name">{product.name}</h5>
-                  <p className="product-price">{product.price}</p>
-                </div>
-              </div>
+              <ProductCard product={product} />
             </SwiperSlide>
           ))}
         </Swiper>
