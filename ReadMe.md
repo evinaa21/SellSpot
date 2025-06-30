@@ -34,50 +34,13 @@ Transform the way people buy and sell locally by eliminating the friction of cre
 | Layer              | Technology                    | Purpose                                              |
 | ------------------ | ----------------------------- | ---------------------------------------------------- |
 | **Frontend**       | React.js + Apollo Client      | Modern, responsive UI with GraphQL integration       |
-| **Backend**        | PHP (Laravel/Native)          | Robust server-side logic and API endpoints           |
+| **Backend**        | PHP (Native)                  | Robust server-side logic and API endpoints           |
 | **API Layer**      | webonyx/graphql-php           | Type-safe GraphQL server implementation              |
 | **AI Engine**      | OpenAI API + Replicate        | Content generation and image processing              |
 | **Database**       | MySQL                         | Reliable data storage for users, listings, and chats |
 | **Maps**           | Leaflet/Mapbox                | Interactive mapping and geospatial queries           |
 | **Authentication** | JWT + Laravel Passport        | Secure user sessions and API access                  |
 | **Real-time**      | WebSockets/Server-Sent Events | Live chat and notifications                          |
-
-## 📁 Project Structure
-
-```
-📂 /client                 → React.js frontend (Vite + TypeScript)
-  ├── 📁 /src/components   → Reusable UI components
-  ├── 📁 /src/pages        → Route-based page components
-  ├── 📁 /src/graphql      → Apollo Client setup and queries
-  ├── 📁 /src/hooks        → Custom React hooks
-  └── 📁 /src/utils        → Helper functions and constants
-
-📂 /server                 → PHP backend (Laravel framework)
-  ├── 📁 /app/Models       → Eloquent models for database entities
-  ├── 📁 /app/GraphQL      → GraphQL resolvers and mutations
-  ├── 📁 /app/Services     → Business logic and external API integrations
-  └── 📁 /app/Http         → Traditional REST endpoints (if needed)
-
-📂 /graphql                → GraphQL schema definitions
-  ├── 📄 schema.graphql    → Type definitions and queries
-  ├── 📁 /resolvers        → Query and mutation resolvers
-  └── 📁 /types            → Custom scalar types and unions
-
-📂 /ai                     → AI integration layer
-  ├── 📁 /prompts          → AI prompt templates
-  ├── 📁 /services         → OpenAI and Replicate integrations
-  └── 📁 /models           → AI model configurations
-
-📂 /database               → Database management
-  ├── 📁 /migrations       → Database schema changes
-  ├── 📁 /seeders          → Sample data for development
-  └── 📁 /factories        → Model factories for testing
-
-📂 /docs                   → Documentation and guides
-  ├── 📁 /api              → GraphQL API documentation
-  ├── 📁 /architecture     → System design diagrams
-  └── 📁 /deployment       → Setup and deployment guides
-```
 
 ## ✨ Core Features
 
@@ -193,33 +156,6 @@ Transform the way people buy and sell locally by eliminating the friction of cre
 - Redis (for sessions and caching)
 - OpenAI API key
 - Mapbox API key
-
-### Quick Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/sellspot.git
-cd sellspot
-
-# Install backend dependencies
-cd server
-composer install
-cp .env.example .env
-php artisan key:generate
-
-# Install frontend dependencies
-cd ../client
-npm install
-
-# Setup database
-cd ../server
-php artisan migrate
-php artisan db:seed
-
-# Start development servers
-php artisan serve      # Backend on :8000
-cd ../client && npm run dev  # Frontend on :3000
-```
 
 ## 🔮 Future Enhancements
 
