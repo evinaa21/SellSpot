@@ -4,6 +4,8 @@ import Home from './components/Home'
 import Shop from './components/Shop'
 import Product from './components/Product'
 import Cart from './components/Cart'
+import Checkout from './components/Checkout'
+import OrderConfirmation from './components/OrderConfirmation'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
+        <Route path='/order-confirmation' element={<OrderConfirmation/>}/>
         <Route path='/shop' element={<Shop/>}/>
         <Route path='/shop/:category' element={<Shop/>}/>
         <Route path='/product/:id' element={<Product/>}/>

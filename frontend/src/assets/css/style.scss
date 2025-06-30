@@ -1450,8 +1450,152 @@ ul{
     }
 }
 
+// --- CHECKOUT & CONFIRMATION STYLES ---
+.checkout-form {
+    .section-header {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $border-color;
+    }
+    .form-control, .form-select {
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        border: 1px solid $border-color;
+        &:focus {
+            border-color: $primary-color;
+            box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.2);
+        }
+    }
+}
+
+.payment-method-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    .payment-option {
+        input[type="radio"] {
+            display: none;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid $border-color;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+
+            i {
+                font-size: 1.5rem;
+                margin-right: 0.75rem;
+                color: $secondary-color;
+                transition: color 0.3s ease;
+            }
+        }
+
+        input[type="radio"]:checked + label {
+            border-color: $primary-color;
+            background-color: rgba($primary-color, 0.05);
+            color: $primary-color;
+            box-shadow: 0 0 15px rgba($primary-color, 0.1);
+
+            i {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.credit-card-form {
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background-color: $light-gray-bg;
+
+    .payment-details-header {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+}
+
+.checkout-summary {
+    top: 120px; // Match other sticky elements
+    .checkout-items-list {
+        max-height: 400px;
+        overflow-y: auto;
+        margin-bottom: 1.5rem;
+        padding-right: 1rem; // For scrollbar
+    }
+    .checkout-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .checkout-item-image {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .checkout-item-details {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        .item-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .item-qty {
+            font-size: 0.8rem;
+            color: $secondary-color;
+        }
+    }
+    .checkout-item-price {
+        font-weight: 600;
+    }
+}
+
+.order-confirmation-container {
+    display: flex;
+    justify-content: center;
+    .confirmation-box {
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+    }
+    .confirmation-icon {
+        font-size: 5rem;
+        color: #2DD4BF; // Success green
+        margin-bottom: 1.5rem;
+    }
+    .confirmation-title {
+        font-weight: 700;
+    }
+    .confirmation-subtitle {
+        color: $secondary-color;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    .confirmation-summary {
+        text-align: left;
+        background: $primary-white;
+        border: 1px solid $border-color;
+    }
+}
+
+
+// --- END OF CHECKOUT STYLES ---
 
 // --- END OF CART PAGE STYLES ---
-
 // --- END OF REFINED STYLES ---
 
