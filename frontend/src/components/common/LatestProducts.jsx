@@ -2,6 +2,11 @@ import React from 'react';
 // Import Swiper components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+
 // Import the new data
 import { latestProductsData } from '../../data/products';
 

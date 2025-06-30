@@ -4,11 +4,13 @@
 /**** Global Variables ****/
 
 $primary-font: "DM Sans", sans-serif;
-$primary-white: #FFF;
-$primary-color: #43c3d1;
-$primary-black: #061123;
-$secondary-color: #343a40;
-$tertiary-color: #868e96;
+$primary-white: #FFFFFF;
+$primary-color: #5A67D8; // A modern, trustworthy indigo
+$primary-black: #1A202C; // Dark charcoal for text
+$secondary-color: #4A5568; // Medium gray for subheadings
+$tertiary-color: #A0AEC0; // Lighter gray for placeholders
+$light-gray-bg: #f7fafc; // A very light gray for section backgrounds
+$border-color: #E2E8F0; // A dedicated color for borders
 
 
 body{
@@ -90,7 +92,8 @@ ul{
 
 // Promotional Bar Styles
 .promo-bar {
-    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    // Using a gradient that complements the primary color
+    background: linear-gradient(45deg, #3a7bd5, $primary-color);
     color: $primary-white;
     padding: 8px 0;
     font-size: 0.9em;
@@ -213,18 +216,20 @@ ul{
     }
     
     &.sale-link {
-        color: #e74c3c !important;
+        // Using a color that fits the new theme
+        color: #3a7bd5 !important;
         font-weight: 700;
         position: relative;
         
         &:hover {
-            color: #c0392b !important;
+            color: $primary-color !important;
         }
     }
 }
 
 .sale-badge {
-    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    // Matching the new gradient for consistency
+    background: linear-gradient(45deg, #3a7bd5, $primary-color);
     color: white;
     font-size: 0.6rem;
     padding: 0.15rem 0.4rem;
@@ -490,7 +495,7 @@ ul{
 
 // New Arrivals Section
 .new-arrivals-section {
-    background-color: #f8f9fa; // A subtle background color to separate the section
+    background-color: $light-gray-bg; // A subtle background color to separate the section
 }
 
 // Section Title
@@ -529,7 +534,7 @@ ul{
 // Product Card
 .product-card {
     background: $primary-white;
-    border: 1px solid #e9ecef; // Slightly softer border color
+    border: 1px solid $border-color; // Slightly softer border color
     border-radius: 12px; // A more subtle border-radius
     overflow: hidden;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -673,4 +678,416 @@ ul{
         right: 0;
     }
 }
+
+// Footer Styles
+.footer-section {
+    background-color: $primary-black;
+    color: rgba($primary-white, 0.7);
+    padding: 4rem 0 0;
+
+    .brand-logo .brand-text {
+        color: $primary-white;
+    }
+
+    .footer-title {
+        color: $primary-white;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .footer-links {
+        li {
+            margin-bottom: 0.75rem;
+        }
+        a {
+            color: rgba($primary-white, 0.7);
+            transition: all 0.3s ease;
+            &:hover {
+                color: $primary-color;
+                padding-left: 5px;
+            }
+        }
+    }
+
+    .social-icons {
+        margin-top: 1.5rem;
+        a {
+            color: $primary-white;
+            background-color: rgba($primary-white, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+            &:hover {
+                background-color: $primary-color;
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+    .newsletter-form {
+        display: flex;
+        margin-top: 1.5rem;
+        input {
+            flex-grow: 1;
+            border: 1px solid rgba($primary-white, 0.2);
+            background: transparent;
+            padding: 0.75rem;
+            border-radius: 8px 0 0 8px;
+            color: $primary-white;
+            &:focus {
+                outline: none;
+                border-color: $primary-color;
+            }
+        }
+        button {
+            border-radius: 0 8px 8px 0;
+            white-space: nowrap;
+            background-color: $primary-color;
+            border-color: $primary-color;
+            color: $primary-white;
+            &:hover {
+                background-color: lighten($primary-color, 5%) !important; 
+                border-color: lighten($primary-color, 5%) !important;
+            }
+        }
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba($primary-white, 0.1);
+        padding: 1.5rem 0;
+        margin-top: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .payment-icons {
+        display: flex;
+        gap: 1rem;
+        font-size: 1.8rem;
+        color: rgba($primary-white, 0.5);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+
+// --- MOBILE RESPONSIVE STYLES ---
+@media (max-width: 767px) {
+    // Section Titles
+    .section-title {
+        font-size: 1.5rem; // Reduce font size for mobile
+    }
+
+    // Product Cards
+    .product-card {
+        .product-image img {
+            height: 300px; // Adjust image height for smaller screens
+        }
+
+        .product-info {
+            padding: 1rem; // Reduce padding on mobile
+
+            .product-name {
+                font-size: 1rem;
+            }
+
+            .product-price {
+                font-size: 1.05rem;
+            }
+        }
+    }
+
+    // Footer adjustments
+    .footer-section {
+        padding-top: 3rem;
+        text-align: center;
+
+        .brand-logo {
+            justify-content: center;
+        }
+
+        .social-icons {
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .footer-links {
+            padding-left: 0;
+            li a:hover {
+                padding-left: 0; // Remove hover padding-shift on mobile
+            }
+        }
+
+        .newsletter-form {
+            justify-content: center;
+        }
+    }
+}
+
+// --- SHOP PAGE STYLES ---
+.breadcrumb {
+    background-color: $light-gray-bg;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .breadcrumb-item {
+        font-size: 0.9rem;
+        color: $primary-black;
+
+        &.active {
+            color: $primary-color;
+        }
+
+        a {
+            color: inherit;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+// --- REFINED FILTER SIDEBAR STYLES ---
+.filter-sidebar {
+    background-color: $primary-white; // Changed to white for a cleaner look
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid $border-color;
+    position: sticky;
+    top: 120px; // Adjust based on your sticky navbar height
+
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid $border-color;
+
+        .filter-main-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .btn-clear-filters {
+            background: none;
+            border: none;
+            color: $secondary-color;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 0;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .filter-group .filter-title {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    
+    .price-display {
+        font-weight: 600;
+        color: $primary-color;
+        background-color: rgba($primary-color, 0.1);
+        padding: 0.25rem 0.75rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+    }
+}
+
+// Filter Accordion Styles
+.filter-accordion {
+    .accordion-item {
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid $border-color;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+    .accordion-header {
+        margin-bottom: 0;
+    }
+    .accordion-button {
+        background-color: transparent;
+        color: $primary-black;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 1rem 0;
+        box-shadow: none;
+
+        &::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234A5568'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            transition: transform 0.3s ease;
+        }
+
+        &:not(.collapsed) {
+            color: $primary-color;
+            &::after {
+                transform: rotate(-180deg);
+            }
+        }
+        &:focus { box-shadow: none; }
+    }
+    .accordion-body {
+        padding: 0.5rem 0 1rem 0;
+    }
+}
+
+// Custom Checkbox
+.form-check {
+    padding-left: 0;
+    margin-bottom: 0.75rem;
+
+    .form-check-input {
+        display: none; // Hide original checkbox
+    }
+
+    .form-check-label {
+        position: relative;
+        padding-left: 2rem;
+        cursor: pointer;
+        user-select: none;
+        color: $secondary-color;
+        transition: color 0.2s ease;
+
+        &::before { // The box
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid $border-color;
+            border-radius: 4px;
+            background: $primary-white;
+            transition: all 0.2s ease;
+        }
+
+        &::after { // The checkmark
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 50%;
+            width: 6px;
+            height: 12px;
+            border: solid $primary-white;
+            border-width: 0 2px 2px 0;
+            transform: translateY(-60%) rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+    }
+
+    .form-check-input:checked + .form-check-label {
+        color: $primary-black;
+        font-weight: 500;
+        &::before {
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
+        &::after {
+            opacity: 1;
+        }
+    }
+    
+    &:hover .form-check-label::before {
+        border-color: $primary-color;
+    }
+}
+
+// Custom Range Slider
+.form-range {
+    height: 6px;
+    &::-webkit-slider-runnable-track {
+        background: $light-gray-bg;
+        border-radius: 6px;
+        height: 6px;
+    }
+    &::-moz-range-track {
+        background: $light-gray-bg;
+        border-radius: 6px;
+        height: 6px;
+    }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        margin-top: -7px; // Center thumb on track
+        width: 20px;
+        height: 20px;
+        background: $primary-color;
+        border-radius: 50%;
+        border: 3px solid $primary-white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        cursor: pointer;
+    }
+    &::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background: $primary-color;
+        border-radius: 50%;
+        border: 3px solid $primary-white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        cursor: pointer;
+    }
+}
+
+.sort-by-select {
+    width: auto;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 0.75rem 2.5rem 0.75rem 1rem; // Adjust padding for arrow
+    background-color: $primary-white;
+    color: $primary-black;
+    font-weight: 500;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234A5568'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.2);
+    }
+}
+
+
+// --- END OF REFINED STYLES ---
 
