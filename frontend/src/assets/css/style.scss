@@ -1593,9 +1593,241 @@ ul{
     }
 }
 
+// --- ADMIN LOGIN PAGE STYLES ---
+.admin-login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: $light-gray-bg;
+    padding: 2rem;
+}
+
+.login-card {
+    background: $primary-white;
+    padding: 2.5rem 3rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 450px;
+
+    .brand-logo {
+        justify-content: center;
+    }
+
+    .login-title {
+        font-weight: 700;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .login-subtitle {
+        color: $secondary-color;
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    .form-label {
+        font-weight: 600;
+    }
+
+    .back-to-site-link {
+        font-weight: 600;
+        color: $secondary-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        &:hover {
+            color: $primary-color;
+        }
+    }
+}
+
+// Form validation styles
+.form-control.is-invalid {
+    border-color: #dc3545; // Bootstrap's danger color
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+}
+.invalid-feedback {
+    display: block; // Make sure feedback is visible
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: .875em;
+    color: #dc3545;
+}
+
+// --- ADMIN DASHBOARD STYLES ---
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: $light-gray-bg;
+}
+
+.admin-sidebar {
+    width: 260px;
+    background-color: $primary-black;
+    color: $primary-white;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+
+    .sidebar-header {
+        padding: 1.5rem;
+        border-bottom: 1px solid rgba($primary-white, 0.1);
+        .brand-logo .brand-text {
+            color: $primary-white;
+        }
+    }
+
+    .sidebar-nav {
+        flex-grow: 1;
+        ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            padding: 0.9rem 1.5rem;
+            color: rgba($primary-white, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+
+            i {
+                width: 20px;
+                margin-right: 1rem;
+                font-size: 1.1rem;
+            }
+
+            &.active, &:hover {
+                background-color: $primary-color;
+                color: $primary-white;
+            }
+        }
+    }
+
+    .sidebar-footer {
+        padding: 1.5rem;
+        border-top: 1px solid rgba($primary-white, 0.1);
+        .logout-btn {
+            background: none;
+            border: none;
+            color: rgba($primary-white, 0.7);
+            display: flex;
+            align-items: center;
+            width: 100%;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+            &:hover {
+                color: $primary-white;
+            }
+            i {
+                width: 20px;
+                margin-right: 1rem;
+                font-size: 1.1rem;
+            }
+        }
+    }
+}
+
+.admin-main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: $primary-white;
+    border-bottom: 1px solid $border-color;
+
+    .user-menu {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        i {
+            font-size: 1.8rem;
+            margin-left: 1rem;
+            color: $secondary-color;
+        }
+    }
+}
+
+.admin-page-content {
+    padding: 2rem;
+    flex-grow: 1;
+    .page-title {
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+}
+
+.stat-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background-color: $primary-white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid $border-color;
+    transition: all 0.3s ease;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: $primary-white;
+        &.icon-revenue { background-color: #3498db; }
+        &.icon-orders { background-color: #9b59b6; }
+        &.icon-customers { background-color: #2ecc71; }
+        &.icon-products { background-color: #f39c12; }
+    }
+
+    .card-info {
+        .card-title {
+            color: $secondary-color;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        .card-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .card-trend {
+            font-size: 0.9rem;
+            color: #27ae60;
+            font-weight: 600;
+        }
+    }
+}
+
+
+// --- END OF ADMIN DASHBOARD STYLES ---
+
+// --- END OF ADMIN LOGIN STYLES ---
 
 // --- END OF CHECKOUT STYLES ---
-
 // --- END OF CART PAGE STYLES ---
 // --- END OF REFINED STYLES ---
 
